@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>서니_♥ 시그 이미지 검색기</title>
-  <style>
+ <style>
     :root {
       /* 화이트 & 로즈골드 화사한 럭셔리 테마 변수 */
       --bg1: #fdfbfb; /* 은은하고 밝은 진주빛 배경 */
@@ -44,6 +44,7 @@
 
     .header {
       padding: 30px;
+      /* 고정된 블랙을 지우고, 화사한 로즈빛 그라데이션으로 교체! */
       background: linear-gradient(135deg, var(--bg2) 0%, #ffffff 100%);
       border-bottom: 1px solid var(--line);
       display: flex;
@@ -101,7 +102,7 @@
     }
 
     .search input::placeholder {
-      color: #bfaab0;
+      color: var(--muted);
     }
 
     .search svg {
