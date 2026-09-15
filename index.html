@@ -6,16 +6,16 @@
   <title>서니_♥ 시그 이미지 검색기</title>
   <style>
     :root {
-      /* 하늘색 테마 변수 */
-      --bg1: #f0f9ff;
-      --bg2: #e0f2fe;
-      --card: #ffffff;
-      --line: #bae6fd;
-      --text: #0c4a6e;
-      --muted: #7dd3fc;
-      --accent: #0284c7;
-      --accent2: #38bdf8;
-      --shadow: 0 14px 40px rgba(2, 132, 199, 0.12);
+      /* 블랙 & 실버 럭셔리 테마 변수 */
+      --bg1: #09090b; /* 아주 깊은 밤하늘/블랙 배경 */
+      --bg2: #18181b; /* 살짝 밝은 다크 그레이 */
+      --card: #121214; /* 카드 배경 */
+      --line: #27272a; /* 은은한 구분선 */
+      --text: #f4f4f5; /* 기본 글자색 (밝은 흰색) */
+      --muted: #a1a1aa; /* 보조 글자색 (회색) */
+      --accent: #ffffff; /* 메인 포인트 (순백색) */
+      --accent2: #e4e4e7; /* 서브 포인트 (은빛) */
+      --shadow: 0 14px 40px rgba(0, 0, 0, 0.8); /* 깊이감 있는 블랙 그림자 */
       --radius: 18px;
     }
 
@@ -44,7 +44,8 @@
 
     .header {
       padding: 30px;
-      background: linear-gradient(135deg, var(--bg2) 0%, #ffffff 100%);
+      /* 이미지 느낌처럼 어두운 톤의 고급스러운 그라데이션 */
+      background: linear-gradient(135deg, #1f1f22 0%, #09090b 100%);
       border-bottom: 1px solid var(--line);
       display: flex;
       align-items: center;
@@ -56,8 +57,8 @@
       height: 100px;
       display: block;
       border-radius: 50%;
-      border: 4px solid #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border: 2px solid #52525b;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); /* 은은한 흰색 후광 */
       object-fit: cover;
     }
 
@@ -67,6 +68,7 @@
       font-weight: 800;
       color: var(--text);
       letter-spacing: -1px;
+      text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2); /* 글자 빛번짐 효과 */
     }
 
     .header-text h1 span {
@@ -75,7 +77,7 @@
 
     .toolbar {
       padding: 20px 30px;
-      background-color: #fff;
+      background-color: var(--card);
     }
 
     .search {
@@ -86,18 +88,22 @@
       width: 100%;
       padding: 12px 12px 12px 40px;
       border-radius: 12px;
-      border: 1px solid #e0e0e0;
+      border: 1px solid var(--line);
       outline: none;
       font-size: 14px;
       color: var(--text);
-      background-color: #f9f9f9;
+      background-color: var(--bg1);
       transition: all 0.2s ease;
     }
 
     .search input:focus {
-      border-color: var(--accent2);
-      background-color: #fff;
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+      border-color: var(--accent);
+      background-color: var(--bg2);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+    }
+
+    .search input::placeholder {
+      color: #71717a;
     }
 
     .search svg {
@@ -107,7 +113,7 @@
       transform: translateY(-50%);
       width: 18px;
       height: 18px;
-      color: #b0b0b0;
+      color: var(--muted);
       pointer-events: none;
     }
 
@@ -121,8 +127,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      color: var(--text);
-      opacity: 0.8;
+      color: var(--muted);
       font-size: 13px;
       padding-top: 10px;
     }
@@ -131,6 +136,7 @@
       border: 1px solid var(--line);
       border-radius: 15px;
       overflow: hidden;
+      background-color: var(--card);
     }
 
     .table-scroll {
@@ -148,8 +154,8 @@
       position: sticky;
       top: 0;
       z-index: 2;
-      background-color: #fcfcfc;
-      color: var(--text);
+      background-color: var(--bg2);
+      color: var(--accent);
       text-align: left;
       padding: 12px 15px;
       border-bottom: 2px solid var(--line);
@@ -168,11 +174,11 @@
     }
 
     tbody tr:nth-child(even) {
-      background-color: rgba(224, 242, 254, 0.3);
+      background-color: rgba(255, 255, 255, 0.02); /* 아주 연한 흰색 음영 */
     }
 
     tbody tr:hover td {
-      background-color: var(--bg2);
+      background-color: rgba(255, 255, 255, 0.05); /* 마우스 오버 시 하이라이트 */
     }
 
     td.num {
@@ -192,7 +198,7 @@
     }
 
     .no-img {
-      color: #aaa;
+      color: #52525b;
       font-style: italic;
       font-size: 12px;
     }
@@ -200,8 +206,8 @@
     .footer {
       padding: 15px 30px;
       border-top: 1px solid var(--line);
-      background-color: #fcfcfc;
-      color: var(--accent);
+      background-color: var(--bg2);
+      color: var(--muted);
       font-size: 12px;
       text-align: center;
       font-weight: 500;
@@ -212,15 +218,16 @@
       align-items: center;
       padding: 5px 10px;
       border-radius: 20px;
-      background-color: var(--bg2);
+      background-color: rgba(255, 255, 255, 0.1);
       color: var(--accent);
       font-size: 12px;
       font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .table-scroll::-webkit-scrollbar { width: 6px; }
     .table-scroll::-webkit-scrollbar-thumb {
-      background: var(--muted);
+      background: #52525b;
       border-radius: 3px;
     }
     .table-scroll::-webkit-scrollbar-track { background: transparent; }
@@ -242,7 +249,7 @@
           <img src="https://stimg.sooplive.com/LOGO/il/iluvpp/iluvpp.jpg" alt="서니_♥ 프로필" />
         </div>
         <div class="header-text">
-          <h1><span>서니_♥</span> 시그 이미지 검색기</h1>
+          <h1>서니_♥ 시그 이미지 검색기</h1>
         </div>
       </div>
 
